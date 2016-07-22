@@ -67,3 +67,10 @@ patch('/stores/:id/update') do
   store.update({name: name, location: location})
   redirect('/stores/' + store.id.to_s)
 end
+
+post('/stores/:id/new_brand') do
+  store = Store.find(params['id'])
+  brand_name = params['new_brand']
+  store.brands.create({name: brand_name})
+  redirect('/stores/' + store.id.to_s)
+end

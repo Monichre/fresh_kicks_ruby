@@ -191,7 +191,7 @@ span img {
 /********************/
 /*brands*/
 
-.brands, .stores {
+.brands, .stores, .updates {
   width: 100%;
 }
 .brand, .store {
@@ -213,9 +213,13 @@ span img {
   position: relative;
   bottom: 5px;
 }
-
 /*Stores*/
 .store-header {
 }
 .delete-update {
+}
+
+.update_store, .add_brand_store {
+  float: left;
+  width: 50%;
 }
