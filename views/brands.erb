@@ -10,6 +10,7 @@
         <% else %>
           <p>Rate them kicks</p>
         <% end %>
+        <span class="sneaker"><img src="../shoe.png" alt="" /></span>
         <span class="rating upVote">
           <form action="/brands/<%=brand.id %>/rating/upvote" method="post">
             <input name="_method" type="hidden" value="patch">

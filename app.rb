@@ -54,7 +54,7 @@ post('/stores/new') do
   redirect('/stores')
 end
 
-delete('/stores/:id') do
+delete('/stores/:id/delete') do
   store = Store.find(params['id'])
   store.delete
   redirect('/stores')

@@ -15,7 +15,17 @@ end
 
 RSpec.configure do |config|
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
+  config.after(:each) do
+    Store.all.each do |store|
+      store.delete
+    end
+    Brand.all.each do |brand|
+      brand.delete
+    end
+  end
 end
+
+
 
 
 
