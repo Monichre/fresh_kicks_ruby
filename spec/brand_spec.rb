@@ -13,4 +13,12 @@ describe(Brand) do
     brand = Brand.create({name: 'Nike'})
     expect(brand.rating).to(eq(0))
   end
+
+  describe('#up_vote') do
+    it "increases rating by 1" do
+      brand = Brand.create({name: 'Nike'})
+      brand.up_vote
+      expect(brand.rating).to(eq(1))
+    end
+  end
 end

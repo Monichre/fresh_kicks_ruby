@@ -39,6 +39,15 @@ Author: Liam Ellis, Aestheke Inc.
     font-family: blackout;
     src: url(../blackout.ttf);
 }
+@font-face {
+    font-family: bold;
+    src: url(../bold.ttf);
+}
+
+@font-face {
+    font-family: media;
+    src: url(../media.otf);
+}
 
 /******************************************************/
 /*Base styles*/
@@ -47,6 +56,44 @@ body {
   margin: auto;
   display: block;
 }
+h3{
+  font-family: media;
+  font-size: 35px;
+}
+p {
+  font-family: milk;
+}
+.form {
+  margin: auto;
+  display: block;
+  text-align: center;
+  clear: both;
+}
+.rating form {
+  width: min-content;
+}
+.upVote {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.downVote {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.arrow {
+  font-family: blackout;
+  font-size: 25px;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+/*end of Base Styles*/
+/******************************/
 
 header {
   height: 300px;
@@ -108,4 +155,56 @@ a, a:hover { color: inherit;}
   margin: 10px;
   bottom: 15px;
   font-size: 35px;
+}
+
+/*******************************/
+/*Success*/
+
+#success {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+#success h3 {
+  font-family: philly;
+  font-size: 80px;
+}
+
+#success h4 {
+  font-family: milk;
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+#success span {
+  margin-top: 20%;
+  display: inline;
+  bottom: 10px;
+}
+
+span img {
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+}
+
+/********************/
+/*brands*/
+
+.brands {
+  width: 100%;
+}
+.brand {
+  float: left;
+  width: 30%;
+  margin: 10px;
+  color: black;
+  text-align: center;
+  position: relative;
+  height: 200px;
+  box-shadow: 3px 3px 3px gray;
+}
+
+.two {
+  color: black;
 }

@@ -1,21 +1,39 @@
-<h3>Check out all of our brands</h3>
+<h3><span class="special two">+</span>Our brands</h3>
 
-<ul>
+<div class="brands clearfix">
   <% if @brands.any? %>
     <% @brands.each do |brand| %>
-      <li><a href="/brands/<%= brand.id %>"><%= brand.name %></a></li>
-    <% end %>
+      <div class="brand">
+        <p><a href="/brands/<%= brand.id %>"><%= brand.name %></a></p>
+        <% if brand.rating.to_i > 0 %>
+          <p>Rating: <%= brand.rating %></p>
+        <% else %>
+          <p>Rate them kicks</p>
+        <% end %>
+        <span class="rating upVote">
+          <form action="/brands/<%=brand.id %>/rating/upvote" method="post">
+            <button type="submit"><span class="arrow">+</span></button>
+          </form>
+        </span>
+        <span class="rating downVote">
+          <form action="/brands/<%=brand.id %>/rating/downvote" method="post">
+            <button type="submit"><span class="arrow">-</span></button>
+          </form>
+        </span>
+      </div>
+    <% end %><!--end of each-->
   <% else %>
     <p>
       No new brands at this time
     </p>
-  <%end %>
-</ul>
+  <%end %><!--end of if -->
+</div>
+<div class="form">
+  <form action="/brands/new" method="post">
 
-<form action="/brands/new" method="post">
+    <label for="brand_name">Brand Name</label><br>
+    <input id="brand_name" name="brand_name" type="text"><br>
 
-  <label for="recipe_name">Recipe Name</label><br>
-  <input id="recipe_name" name="recipe_name" type="text"><br>
-
-  <button class="btn" type="submit">Add this brand</button>
-</form>
+    <button class="btn" type="submit">Add this brand</button>
+  </form>
+</div>

@@ -18,6 +18,24 @@ get('/brands/:id') do
 end
 
 post('/brands/new') do
-  name = params['name']
+  name = params['brand_name']
+  brand = Brand.create({name: name})
   erb(:success)
+end
+
+post('/brands/:id/rating/upvote') do
+  brand = Brand.find(params['id'])
+  brand.up_vote
+  redirect('/brands')
+end
+
+post('/brands/:id/rating/downvote') do
+  brand = Brand.find(params['id'])
+  brand.up_vote
+  redirect('/brands')
+end
+
+get('/stores') do
+  @stores = Store.all
+  erb(:stores)
 end
