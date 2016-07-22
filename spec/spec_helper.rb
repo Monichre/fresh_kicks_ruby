@@ -2,6 +2,8 @@ ENV['RACK_ENV'] = 'test'
 
 require("bundler/setup")
 Bundler.require(:default, :test)
+Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each { |file| require file }
+set(:root, Dir.pwd())
 
 #Attempting to implement 'Shoulda-matcher' per the docs -->
 Shoulda::Matchers.configure do |config|
@@ -15,8 +17,7 @@ RSpec.configure do |config|
   config.include(Shoulda::Matchers::ActiveRecord, type: :model)
 end
 
-Dir[File.dirname(__FILE__) + '/../lib/*.rb'].each { |file| require file }
-set(:root, Dir.pwd())
+
 
 require('capybara/rspec')
 Capybara.app = Sinatra::Application
