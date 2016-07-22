@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: fresh_kicks_development
+
+test:
+  adapter: postgresql
+  database: fresh_kicks_test
