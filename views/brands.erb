@@ -1,0 +1,21 @@
+<h3>Check out all of our brands</h3>
+
+<ul>
+  <% if @brands.any? %>
+    <% @brands.each do |brand| %>
+      <li><a href="/brands/<%= brand.id %>"><%= brand.name %></a></li>
+    <% end %>
+  <% else %>
+    <p>
+      No new brands at this time
+    </p>
+  <%end %>
+</ul>
+
+<form action="/brands/new" method="post">
+
+  <label for="recipe_name">Recipe Name</label><br>
+  <input id="recipe_name" name="recipe_name" type="text"><br>
+
+  <button class="btn" type="submit">Add this brand</button>
+</form>

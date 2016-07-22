@@ -21,10 +21,91 @@ Author: Liam Ellis, Aestheke Inc.
 }
 .clear {clear: both;}
 
+/*FONTS*/
+
+@font-face {
+    font-family: milk;
+    src: url(../milk.otf);
+}
+@font-face {
+    font-family: philly;
+    src: url(../philly.otf);
+}
+@font-face {
+    font-family: urban;
+    src: url(../urban.ttf);
+}
+@font-face {
+    font-family: blackout;
+    src: url(../blackout.ttf);
+}
+
 /******************************************************/
 /*Base styles*/
 
 body {
   margin: auto;
   display: block;
+}
+
+header {
+  height: 300px;
+  width: 100%;
+  position: relative;
+  background: url(../kicks-header.jpeg);
+  background-position: center;
+  background-size: 100%;
+
+}
+.layer {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+header h1 {
+  margin: 0;
+  font-family: blackout;
+  font-size: 100px;
+  color: white;
+}
+.headers {
+  position: absolute;
+  margin-top: 3%;
+  margin-left: 12%;
+}
+.kicks {
+  padding-left: 60px;
+  font-size: 80px;
+}
+nav {
+  position: absolute;
+  right: 150px;
+  margin-top: 10%;
+}
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+li {
+  display: inline;
+  font-family: philly;
+  color: white;
+}
+a, a:hover { color: inherit;}
+
+.special {
+  font-family: blackout;
+  font-size: 80px;
+  color: white;
+  margin: 10px;
+}
+.normal {
+  position: relative;
+  margin: 10px;
+  bottom: 15px;
+  font-size: 35px;
 }

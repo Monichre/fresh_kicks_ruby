@@ -10,4 +10,9 @@ describe(Store) do
     store = Store.new({location: ""})
     expect(store.save()).to(eq(false))
   end
+
+  it "capitalizes name" do
+    store = Store.create({name: 'nike'})
+    expect(store.name).to(eq('Nike'))
+  end
 end
