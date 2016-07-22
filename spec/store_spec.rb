@@ -5,4 +5,9 @@ describe(Store) do
     store = Store.new({name: ""})
     expect(store.save()).to(eq(false))
   end
+
+  it "validates the presence of location" do
+    store = Store.new({location: ""})
+    expect(store.save()).to(eq(false))
+  end
 end
