@@ -1,0 +1,38 @@
+<h3 class="store-header"><%= @store.name %>, <%= @store.location %>
+  <div class="delete-update">
+    <form class="button-form" action="/stores/<%=@store.id %>/delete" method="post">
+      <input name="_method" type="hidden" value="delete">
+      <span class="special two three">>></span><button type="submit">Delete</button><!-- Delete -->
+    </form>
+  </div>
+</h3>
+<div class="brands clearfix"><!--store brands -->
+  <% if @store.brands.any? %>
+    <% @store.brands.each do |brand| %>
+      <div class="brand">
+        <p>
+          <%= brand.name %>
+        </p>
+        <% if brand.rating.to_i > 0 %>
+          <p>Rating: <%= brand.rating %></p>
+        <% else %>
+          <p>No rating</p>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>
+      No brands available at this retailer
+    </p>
+  <%end%>
+</div>
+<div class="update_store">
+  <form class="button-form" action="/stores/<%=@store.id %>/update" method="post"><!--Update form -->
+    <input name="_method" type="hidden" value="patch">
+      <label for="update_store_name">Store Name</label><br>
+      <input id="update_store_name" name="update_store_name" type="text"><br>
+      <label for="update_store_location">Store Location</label><br>
+      <input id="update_store_location" name="update_store_location" type="text"><br>
+    <span class="update_special two three">>></span><button type="submit">Update</button>
+  </form>
+</div>

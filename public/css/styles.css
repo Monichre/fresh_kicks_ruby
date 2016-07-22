@@ -69,7 +69,7 @@ p {
   text-align: center;
   clear: both;
 }
-.rating form {
+.rating form, .button-form {
   width: min-content;
 }
 .upVote {
@@ -191,10 +191,10 @@ span img {
 /********************/
 /*brands*/
 
-.brands {
+.brands, .stores {
   width: 100%;
 }
-.brand {
+.brand, .store {
   float: left;
   width: 30%;
   margin: 10px;
@@ -207,4 +207,15 @@ span img {
 
 .two {
   color: black;
+}
+.three {
+  font-size: 20px;
+  position: relative;
+  bottom: 5px;
+}
+
+/*Stores*/
+.store-header {
+}
+.delete-update {
 }

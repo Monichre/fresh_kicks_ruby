@@ -3,6 +3,8 @@ Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 
+
+
 get('/') do
   erb(:index)
 end
@@ -23,19 +25,45 @@ post('/brands/new') do
   erb(:success)
 end
 
-post('/brands/:id/rating/upvote') do
+patch('/brands/:id/rating/upvote') do #fix these methods
   brand = Brand.find(params['id'])
   brand.up_vote
   redirect('/brands')
 end
 
-post('/brands/:id/rating/downvote') do
+patch('/brands/:id/rating/downvote') do #fix these methods
   brand = Brand.find(params['id'])
-  brand.up_vote
+  brand.down_vote
   redirect('/brands')
 end
 
 get('/stores') do
   @stores = Store.all
   erb(:stores)
+end
+
+get('/stores/:id') do
+  @store = Store.find(params['id'])
+  erb(:store)
+end
+
+post('/stores/new') do
+  name = params['store_name']
+  location = params['store_location']
+  store = Store.create({name: name, location: location})
+  redirect('/stores')
+end
+
+delete('/stores/:id') do
+  store = Store.find(params['id'])
+  store.delete
+  redirect('/stores')
+end
+
+patch('/stores/:id/update') do
+  store = Store.find(params['id'])
+  name = params['update_store_name']
+  location = params['update_store_location']
+  store.update({name: name, location: location})
+  redirect('/stores/' + store.id.to_s)
 end

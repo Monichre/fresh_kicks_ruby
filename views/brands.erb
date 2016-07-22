@@ -12,11 +12,13 @@
         <% end %>
         <span class="rating upVote">
           <form action="/brands/<%=brand.id %>/rating/upvote" method="post">
+            <input name="_method" type="hidden" value="patch">
             <button type="submit"><span class="arrow">+</span></button>
           </form>
         </span>
         <span class="rating downVote">
           <form action="/brands/<%=brand.id %>/rating/downvote" method="post">
+            <input name="_method" type="hidden" value="patch">
             <button type="submit"><span class="arrow">-</span></button>
           </form>
         </span>

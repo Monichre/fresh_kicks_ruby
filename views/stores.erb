@@ -1,0 +1,25 @@
+<h3><span class="special two">+</span>Our Retailers</h3>
+<% if @stores.any? %>
+  <div class="stores">
+    <% @stores.each do |store| %>
+      <div class="store">
+        <p><a href="/stores/<%= store.id %>"><%= store.name %></a></p>
+        <p class="location"><%= store.location %></p>
+      </div>
+    <% end %>
+  </div><!--end of stores -->
+<% else %>
+<p>
+  No retailers currently. Check back.
+</p>
+<% end %>
+
+<div class="form">
+  <form action="/stores/new" method="post">
+    <label for="store_name">Store Name</label><br>
+    <input id="store_name" name="store_name" type="text"><br>
+    <label for="store_location">Store Location</label><br>
+    <input id="store_location" name="store_location" type="text"><br>
+    <button class="btn" type="submit">Add this Store</button>
+  </form>
+</div>
