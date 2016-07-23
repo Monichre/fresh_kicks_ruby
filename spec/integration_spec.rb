@@ -18,7 +18,8 @@ describe('/stores', {:type => :feature}) do
     expect(page).to have_content('Nike')
   end
 end
-describe('/stores/:id', {:type => :feature}) do
+
+describe('/stores/:id/add_brand', {:type => :feature}) do
   it "displays shoe brands on individual page" do
     store = Store.create({name: 'Nike Depot', location: 'Portland'})
     store.brands.create({name: 'Puma'})
@@ -33,11 +34,18 @@ describe('/stores/:id', {:type => :feature}) do
   end
 end
 
-# describe('/', {:type => :feature}) do
-#   it('displays home page') do
-#     visit('/')
-#     fill_in('title', :with => 'green eggs and ham')
-#     click_button('Send')
-#     expect(page).to have_content('Green Eggs and Ham')
-#   end
-# end
+describe('/stores/:id/update', {:type => :feature}) do
+  it "updates the store" do
+    store = Store.create({name: 'Nike Depot', location: 'Portland'})
+    visit('/stores/' + store.id.to_s)
+    within(:css, "h3.store-header") do
+      expect(page).to have_content('Nike depot, Portland >>Delete')
+    end
+    fill_in('update_store_name', :with => 'Nike')
+    fill_in('update_store_location', :with => 'New York City')
+    click_button('Update')
+    within(:css, "h3.store-header") do
+      expect(page).to have_content('Nike, New York City >>Delete')
+    end
+  end
+end
