@@ -13,7 +13,7 @@ describe('/stores', {:type => :feature}) do
     fill_in('store_name', :with => 'Nike')
     fill_in('store_location', :with => 'PDX')
     click_button('Add this Store')
-    expect(page).to have_content('Fresh kicks >> << Home Stores Shoes +Our Retailers Nike PDX Store Name Store Location Add this Store')
+    expect(page).to have_content('Fresh kicks >> << Home Stores Shoes *Our Retailers Nike PDX Store Name Store Location Add this Store')
     click_link('Nike')
     expect(page).to have_content('Nike')
   end
@@ -46,6 +46,30 @@ describe('/stores/:id/update', {:type => :feature}) do
     click_button('Update')
     within(:css, "h3.store-header") do
       expect(page).to have_content('Nike, New York City >>Delete')
+    end
+  end
+end
+
+# spec tests for brands routes -->
+
+describe('/brands', {:type => :feature}) do
+  it "displays all the brands" do
+    brand = Brand.create({name: 'Adidas', rating: 5})
+    brand2 = Brand.create({name: 'Puma'})
+    visit('/brands')
+    within(:css, "div.brands") do
+      expect(page).to have_content('Adidas Rate them kicks + - Puma Rate them kicks + -')
+      expect(page).to have_content('Puma Rate them kicks')
+    end
+  end
+end
+
+describe('/brands/:id', {:type => :feature}) do
+  it "displays all the brands" do
+    brand = Brand.create({name: 'Adidas', rating: 5})
+    visit('/brands/' + brand.id.to_s)
+    within(:css, "h3") do
+      expect(page).to have_content('Adidas')
     end
   end
 end

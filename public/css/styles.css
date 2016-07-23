@@ -217,7 +217,7 @@ span img {
 }
 .delete-update {
 }
-#store_link {
+#store_link, #brand_link {
   color: black;
   font-family: bold;
   font-size: 30px;
