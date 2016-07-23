@@ -169,7 +169,6 @@ a, a:hover { color: inherit;}
   font-family: philly;
   font-size: 80px;
 }
-
 #success h4 {
   font-family: milk;
   font-size: 20px;
@@ -188,7 +187,7 @@ span img {
   margin: 10px;
 }
 
-/********************/
+/********************//********************//********************//********************/
 /*brands*/
 
 .brands, .stores, .updates {
@@ -204,7 +203,6 @@ span img {
   height: 200px;
   box-shadow: 3px 3px 3px gray;
 }
-
 .two {
   color: black;
 }
@@ -213,12 +211,17 @@ span img {
   position: relative;
   bottom: 5px;
 }
+/********************//********************//********************//********************/
 /*Stores*/
 .store-header {
 }
 .delete-update {
 }
-
+#store_link {
+  color: black;
+  font-family: bold;
+  font-size: 30px;
+}
 .update_store, .add_brand_store {
   float: left;
   width: 50%;

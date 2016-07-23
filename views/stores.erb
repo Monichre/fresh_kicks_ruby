@@ -3,7 +3,7 @@
   <div class="stores">
     <% @stores.each do |store| %>
       <div class="store">
-        <p><a href="/stores/<%= store.id %>"><%= store.name %></a></p>
+        <li id="store_link"><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
         <p class="location"><%= store.location %></p>
       </div>
     <% end %>
