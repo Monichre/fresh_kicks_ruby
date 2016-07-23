@@ -154,10 +154,11 @@ a, a:hover { color: inherit;}
   position: relative;
   margin: 10px;
   bottom: 15px;
+  left: 50px;
   font-size: 35px;
 }
 
-/*******************************/
+/*******************************//*******************************/
 /*Success*/
 
 #success {
@@ -190,7 +191,7 @@ span img {
 /********************//********************//********************//********************/
 /*brands*/
 
-.brands, .stores, .updates {
+.brands, .stores, .updates, .brands_headers, .stores_headers {
   width: 100%;
 }
 .brand, .store {
@@ -213,10 +214,7 @@ span img {
 }
 /********************//********************//********************//********************/
 /*Stores*/
-.store-header {
-}
-.delete-update {
-}
+
 #store_link, #brand_link {
   color: black;
   font-family: bold;
@@ -225,4 +223,11 @@ span img {
 .update_store, .add_brand_store {
   float: left;
   width: 50%;
+}
+.brands_headers h3, .stores_headers h3 {
+  width: 30%;
+  margin: 10px;
+  float: left;
+  padding: 1%;
+  border-bottom: 1px solid black;
 }

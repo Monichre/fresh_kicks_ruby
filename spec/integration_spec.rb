@@ -13,7 +13,7 @@ describe('/stores', {:type => :feature}) do
     fill_in('store_name', :with => 'Nike')
     fill_in('store_location', :with => 'PDX')
     click_button('Add this Store')
-    expect(page).to have_content('Fresh kicks >> << Home Stores Shoes *Our Retailers Nike PDX Store Name Store Location Add this Store')
+    expect(page).to have_content('Fresh kicks >> << Home Stores Shoes *Our Retailers +Add Retailers Nike PDX Store Name Store Location Add this Store')
     click_link('Nike')
     expect(page).to have_content('Nike')
   end
