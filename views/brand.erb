@@ -1,1 +1,19 @@
-<h3><%=@brand.name %></h3>
+<h3><span class="special two"><%=@brand.name %></span></h3>
+<div class="brand_features">
+  <h3><span class="special two">*</span>Featured at these retailers</h3>
+</div>
+
+<% if @brand.stores.any? %>
+  <div class="stores">
+    <% @brand.stores.each do |store| %>
+      <div class="store">
+        <li id="store_link"><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
+        <p class="location"><%= store.location %></p>
+      </div>
+    <% end %>
+  </div><!--end of stores -->
+<% else %>
+<p>
+  No retailers currently. Check back.
+</p>
+<% end %>

@@ -77,3 +77,10 @@ post('/stores/:id/new_brand') do
   store.brands.create({name: brand_name})
   redirect('/stores/' + store.id.to_s)
 end
+
+delete('/stores/:store_id/brands/:id/delete') do
+  store = Store.find(params['store_id'])
+  brand = Brand.find(params['id'])
+  brand.delete
+  redirect('/stores/' + store.id.to_s)
+end

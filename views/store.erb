@@ -1,12 +1,33 @@
-<h3 class="store-header"><%= @store.name %>, <%= @store.location %>
-  <div class="delete-update">
-    <form class="button-form" action="/stores/<%=@store.id %>/delete" method="post">
-      <input name="_method" type="hidden" value="delete">
-      <span class="special two three">>></span><button type="submit">Delete</button><!-- Delete -->
+<h3 class="store-header"><span class="special two"><%= @store.name %></span>, <%= @store.location %>
+  <br>
+  <br>
+  <form class="button-form" action="/stores/<%=@store.id %>/delete" method="post">
+    <input name="_method" type="hidden" value="delete">
+    <span class="special two three">>></span><button type="submit">Delete</button><!-- Delete -->
+  </form>
+</h3>
+<img class="splash black black2" src="../black-splash.png" alt="" />
+<h3 class="store_update_header"><span class="special two three">>></span>Update
+  <div class="inline-form">
+    <form class= "update_store_form" action="/stores/<%=@store.id %>/update" method="post"><!--Update form -->
+      <input name="_method" type="hidden" value="patch">
+        <label for="update_store_name">Store Name</label>
+        <input id="update_store_name" name="update_store_name" type="text">
+        <label for="update_store_location">Store Location</label>
+        <input id="update_store_location" name="update_store_location" type="text">
+        <button type="submit"><span class="special two three">+</span></button>
     </form>
   </div>
 </h3>
-<h3><span class="special two three">>></span>Update</h3>
+<h3 class="store_update_header"><span class="special two three">>></span>Add a brand
+  <div class="inline-form">
+    <form class="update_store_form" action="/stores/<%=@store.id %>/new_brand" method="post">
+        <label for="new_brand">Brand Name</label>
+        <input id="new_brand" name="new_brand" type="text">
+        <button type="submit"><span class="update_special two three">+</span></button>
+    </form>
+  </div>
+</h3>
 <div class="brands clearfix"><!--store brands -->
   <% if @store.brands.any? %>
     <% @store.brands.each do |brand| %>
@@ -19,6 +40,13 @@
         <% else %>
           <p>No rating</p>
         <% end %>
+        <span class="sneaker"><img src="../shoe.png" alt="" /></span>
+        <span class="delete">
+          <form action="/stores/<%= @store.id %>/brands/<%=brand.id %>/delete" method="post">
+            <input name="_method" type="hidden" value="delete">
+            <button type="submit"><span class="arrow">X</span></button>
+          </form>
+        </span>
       </div>
     <% end %>
   <% else %>
@@ -26,23 +54,4 @@
       No brands available at this retailer
     </p>
   <%end%>
-</div>
-<div class="updates">
-  <div class="update_store">
-    <form class="button-form" action="/stores/<%=@store.id %>/update" method="post"><!--Update form -->
-      <input name="_method" type="hidden" value="patch">
-        <label for="update_store_name">Store Name</label><br>
-        <input id="update_store_name" name="update_store_name" type="text"><br>
-        <label for="update_store_location">Store Location</label><br>
-        <input id="update_store_location" name="update_store_location" type="text"><br>
-      <span class="update_special two three">>></span><button type="submit">Update</button>
-    </form>
-  </div>
-  <div class="add_brand_store">
-    <form class="button-form" action="/stores/<%=@store.id %>/new_brand" method="post"><!--Update form -->
-        <label for="new_brand">Store Name</label><br>
-        <input id="new_brand" name="new_brand" type="text"><br>
-      <span class="update_special two three">>></span><button type="submit">Add this brand</button>
-    </form>
-  </div>
 </div>

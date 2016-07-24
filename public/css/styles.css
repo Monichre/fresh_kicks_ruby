@@ -87,10 +87,17 @@ p, .inline-form label {
   bottom: 0;
   right: 50px;
 }
-.inline-form, .inline-button {
+.inline-form, .inline-button{
   width: min-content;
   display: inline;
   padding: 0;
+}
+.update_store_form {
+  width: auto;
+  display: inline;
+  position: relative;
+  top: 10px;
+  left: 10px;
 }
 .inline-form label, .inline-form input {
   display: inline;
@@ -115,8 +122,9 @@ p, .inline-form label {
   bottom: 20px;
 }
 
-#store-form label, #store-form input {
+#store-form label, #store-form input, #update_store_name, #update_store_location, #new_brand {
   width: 20%;
+  display: inline;
 }
 .rating form, .button-form, .delete form {
   width: min-content;
@@ -164,10 +172,24 @@ main {
   border: 2px solid black;
   padding: 1%;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 .splash {
   position: absolute;
+}
+.black {
+  height: 300px;
+  width: 300px;
+  z-index: -5;
+}
+.black1 {
+  right: -200px;
+  top: 0;
+}
+
+.black2 {
+  left: 12%;
+  top: 25%;
 }
 .red {
   /*bottom: 50px;*/
@@ -184,6 +206,7 @@ main {
   left: 0;
   z-index: -5;
   zoom: 272%;
+  opacity: 0.6;
 }
 .green {
 
@@ -288,7 +311,7 @@ span img {
 /********************//********************//********************//********************/
 /*brands*/
 
-.brands, .stores, .updates, .brands_headers, .stores_headers, .skaters {
+.brands, .stores, .updates, .brands_headers, .stores_headers, .skaters, .store_update_header {
   width: 100%;
   position: relative;
 }
@@ -347,7 +370,7 @@ span img {
 }
 .skate {
   width: 32.333%;
-  margin-left: 5px;
+  margin-left: 8px;
   height: 400px;
   float: left;
   box-shadow: 2px 2px 2px black;
