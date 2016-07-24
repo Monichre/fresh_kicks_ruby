@@ -187,7 +187,7 @@ main {
 }
 
 .black2 {
-  left: 12%;
+  right: 0;
   top: 25%;
 }
 .red {
@@ -343,6 +343,14 @@ span img {
   position: relative;
   left: 50px;
   bottom: 0;
+}
+
+.five {
+  color: white;
+  font-size: 30px;
+  position: relative;
+  left: 40px;
+  top:10px;
 }
 
 /********************//********************//********************//********************/

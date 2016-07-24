@@ -9,7 +9,7 @@
 <img class="splash black black2" src="../black-splash.png" alt="" />
 <h3 class="store_update_header"><span class="special two three">>></span>Update
   <div class="inline-form">
-    <form class= "update_store_form" action="/stores/<%=@store.id %>/update" method="post"><!--Update form -->
+    <form class= "update_store_form update" action="/stores/<%=@store.id %>/update" method="post"><!--Update form -->
       <input name="_method" type="hidden" value="patch">
         <label for="update_store_name">Store Name</label>
         <input id="update_store_name" name="update_store_name" type="text">

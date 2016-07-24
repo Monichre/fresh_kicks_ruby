@@ -3,19 +3,7 @@ require('spec_helper')
 describe('/', {:type => :feature}) do
   it('displays home page') do
     visit('/')
-    expect(page).to have_content('Fresh kicks >> << Home Stores Shoes Build This')
-  end
-end
-
-describe('/stores', {:type => :feature}) do
-  it('displays the stores') do
-    visit('/stores')
-    fill_in('store_name', :with => 'Nike')
-    fill_in('store_location', :with => 'PDX')
-    click_button('Add this Store')
-    expect(page).to have_content('Fresh kicks >> << Home Stores Shoes *Our Retailers +Add Retailers Nike PDX Store Name Store Location Add this Store')
-    click_link('Nike')
-    expect(page).to have_content('Nike')
+    expect(page).to have_content('Fresh kicks >> << Home Stores Shoes OurStyles.. Aestheke Inc.')
   end
 end
 
@@ -38,14 +26,13 @@ describe('/stores/:id/update', {:type => :feature}) do
   it "updates the store" do
     store = Store.create({name: 'Nike Depot', location: 'Portland'})
     visit('/stores/' + store.id.to_s)
-    within(:css, "h3.store-header") do
-      expect(page).to have_content('Nike depot, Portland >>Delete')
-    end
     fill_in('update_store_name', :with => 'Nike')
     fill_in('update_store_location', :with => 'New York City')
-    click_button('Update')
+    within(:css, "form.update") do
+      click_button('+')
+    end
     within(:css, "h3.store-header") do
-      expect(page).to have_content('Nike, New York City >>Delete')
+      expect(page).to have_content('Nike, New York City')
     end
   end
 end
@@ -56,10 +43,10 @@ describe('/stores/:store_id/brands/:id/delete', {:type => :feature}) do #delete 
     store.brands.create({name: 'Nike Air'})
     visit('/stores/' + store.id.to_s)
     within(:css, "p.brand_link") do
-      expect(page).to have_content('Nike Air')
+      expect(page).to have_content('Nike air')
     end
     click_button('X')
-    within(:css, "p") do
+    within(:css, "div.brands") do
       expect(page).to have_content('No brands available at this retailer')
     end
   end
@@ -74,7 +61,7 @@ describe('/brands', {:type => :feature}) do
     brand2 = Brand.create({name: 'Puma'})
     visit('/brands')
     within(:css, "div.brands") do
-      expect(page).to have_content('Adidas Rate them kicks + - Puma Rate them kicks + -')
+      expect(page).to have_content('Adidas Rate them kicks + - X Puma Rate them kicks + - X')
       expect(page).to have_content('Puma Rate them kicks')
     end
   end
@@ -84,7 +71,7 @@ describe('/brands/:id', {:type => :feature}) do
   it "displays all the brands" do
     brand = Brand.create({name: 'Adidas', rating: 5})
     visit('/brands/' + brand.id.to_s)
-    within(:css, "h3") do
+    within(:css, "h3.brand_title span.special.two") do
       expect(page).to have_content('Adidas')
     end
   end
