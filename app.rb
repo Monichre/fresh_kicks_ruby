@@ -19,18 +19,24 @@ end
 post('/brands/new') do
   name = params['brand_name']
   brand = Brand.create({name: name})
-  erb(:success)
+  redirect('/brands')
 end
 
-patch('/brands/:id/rating/upvote') do #fix these methods
+patch('/brands/:id/rating/upvote') do
   brand = Brand.find(params['id'])
   brand.up_vote
   redirect('/brands')
 end
 
-patch('/brands/:id/rating/downvote') do #fix these methods
+patch('/brands/:id/rating/downvote') do
   brand = Brand.find(params['id'])
   brand.down_vote
+  redirect('/brands')
+end
+
+delete('/brands/:id/delete') do
+  brand = Brand.find(params['id'])
+  brand.delete
   redirect('/brands')
 end
 

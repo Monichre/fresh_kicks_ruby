@@ -1,4 +1,5 @@
 <div class="brands_headers clearfix">
+  <img class="splash red2" src="../red-splash.png" alt="" />
   <h3><span class="special two">*</span>Our brands</h3>
   <h3><span class="special two">+</span>Add brands<span class="special two three four">>></span></h3>
   <h3 class="form-header">
@@ -13,7 +14,7 @@
 </div>
 
 <div class="brands clearfix">
-  <div class="background-layer">
+
     <% if @brands.any? %>
       <% @brands.each do |brand| %>
         <div class="brand">
@@ -36,6 +37,12 @@
               <button type="submit"><span class="arrow">-</span></button>
             </form>
           </span>
+          <span class="delete">
+            <form action="/brands/<%=brand.id %>/delete" method="post">
+              <input name="_method" type="hidden" value="delete">
+              <button type="submit"><span class="arrow">X</span></button>
+            </form>
+          </span>
         </div>
       <% end %><!--end of each-->
     <% else %>
@@ -43,5 +50,5 @@
         No new brands at this time
       </p>
     <%end %><!--end of if -->
-  </div><!-- end of background layer -->
+
 </div><!-- end of brands -->

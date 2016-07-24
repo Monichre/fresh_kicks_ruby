@@ -61,6 +61,7 @@ body {
   margin: auto;
   display: block;
 }
+
 #index-header {
   font-family: philly;
   color: black;
@@ -117,7 +118,7 @@ p, .inline-form label {
 #store-form label, #store-form input {
   width: 20%;
 }
-.rating form, .button-form {
+.rating form, .button-form, .delete form {
   width: min-content;
 }
 
@@ -129,6 +130,11 @@ input {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+.delete {
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .downVote {
   position: absolute;
@@ -158,6 +164,7 @@ main {
   border: 2px solid black;
   padding: 1%;
   position: relative;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .splash {
   position: absolute;
@@ -169,6 +176,14 @@ main {
   height: 600px;
   width: 800px;
   z-index: -5;
+}
+.red2 {
+  height: 500px;
+  width: 600px;
+  bottom: -300px;
+  left: 0;
+  z-index: -5;
+  zoom: 272%;
 }
 .green {
 
@@ -277,6 +292,10 @@ span img {
   width: 100%;
   position: relative;
 }
+/*.brands {
+  background: url(../red-splash.png);
+  background-position: center;
+}*/
 .brand, .store {
   float: left;
   width: 30%;
@@ -286,6 +305,7 @@ span img {
   position: relative;
   height: 200px;
   box-shadow: 3px 3px 3px gray;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .two {
   color: black;
@@ -330,6 +350,7 @@ span img {
   margin-left: 5px;
   height: 400px;
   float: left;
+  box-shadow: 2px 2px 2px black;
 
 }
 .skate1 {
