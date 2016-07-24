@@ -172,7 +172,6 @@ main {
   border: 2px solid black;
   padding: 1%;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.2);
 }
 .splash {
   position: absolute;
@@ -198,6 +197,7 @@ main {
   height: 600px;
   width: 800px;
   z-index: -5;
+  opacity: 0.6;
 }
 .red2 {
   height: 500px;
