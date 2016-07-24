@@ -38,7 +38,7 @@ describe('/stores/:id/update', {:type => :feature}) do
 end
 
 describe('/stores/:store_id/brands/:id/delete', {:type => :feature}) do #delete brand from store route
-  it "updates the store" do
+  it "updates the store and removes the respective brands from the general brand list" do
     store = Store.create({name: 'Nike Depot', location: 'Portland'})
     store.brands.create({name: 'Nike Air'})
     visit('/stores/' + store.id.to_s)
@@ -49,9 +49,9 @@ describe('/stores/:store_id/brands/:id/delete', {:type => :feature}) do #delete 
     within(:css, "div.brands") do
       expect(page).to have_content('No brands available at this retailer')
     end
+    visit('/brands')
   end
 end
-# fix this ^ route its ridiculous with the rspec tests
 
 # spec tests for brands routes -->
 
