@@ -49,6 +49,11 @@ Author: Liam Ellis, Aestheke Inc.
     src: url(../media.otf);
 }
 
+@font-face {
+    font-family: future;
+    src: url(../future.ttf);
+}
+
 /******************************************************/
 /*Base styles*/
 
@@ -56,21 +61,69 @@ body {
   margin: auto;
   display: block;
 }
+#index-header {
+  font-family: philly;
+  color: black;
+  font-size: 80px;
+  text-align: center;
+}
 h3{
   font-family: media;
   font-size: 35px;
 }
-p {
+p, .inline-form label {
   font-family: milk;
 }
+
 .form {
   margin: auto;
   display: block;
   text-align: center;
   clear: both;
 }
+.form-header {
+  position: absolute;
+  bottom: 0;
+  right: 50px;
+}
+.inline-form, .inline-button {
+  width: min-content;
+  display: inline;
+  padding: 0;
+}
+.inline-form label, .inline-form input {
+  display: inline;
+  width: 50%;
+}
+.inline-form label {
+  font-size: 15px;
+}
+.inline-form input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  box-shadow: 5px black;
+}
+.inline-form {
+  position: relative;
+  bottom: 10px;
+}
+#store-form {
+  position: absolute;
+  width: 500px;
+  bottom: 20px;
+}
+
+#store-form label, #store-form input {
+  width: 20%;
+}
 .rating form, .button-form {
   width: min-content;
+}
+
+input {
+  font-family: milk!important;
+  font-size: 15px;
 }
 .upVote {
   position: absolute;
@@ -95,6 +148,31 @@ button {
 /*end of Base Styles*/
 /******************************/
 
+
+
+/******************************/
+/*Index Styles*/
+
+main {
+  margin-top: 3%;
+  border: 2px solid black;
+  padding: 1%;
+  position: relative;
+}
+.splash {
+  position: absolute;
+}
+.red {
+  /*bottom: 50px;*/
+  top: 0;
+  right: 0;
+  height: 600px;
+  width: 800px;
+  z-index: -5;
+}
+.green {
+
+}
 header {
   height: 300px;
   width: 100%;
@@ -104,7 +182,7 @@ header {
   background-size: 100%;
 
 }
-.layer {
+.layer, .background-layer {
   background-color: rgba(0, 0, 0, 0.4);
   position: absolute;
   top: 0;
@@ -119,9 +197,9 @@ header h1 {
   font-size: 100px;
   color: white;
 }
+
 .headers {
   position: absolute;
-  margin-top: 3%;
   margin-left: 12%;
 }
 .kicks {
@@ -131,10 +209,14 @@ header h1 {
 nav {
   position: absolute;
   right: 150px;
-  margin-top: 10%;
+}
+
+.headers, nav {
+  bottom: 0;
 }
 ul {
   padding: 0;
+  margin: 0;
   list-style-type: none;
 }
 li {
@@ -191,8 +273,9 @@ span img {
 /********************//********************//********************//********************/
 /*brands*/
 
-.brands, .stores, .updates, .brands_headers, .stores_headers {
+.brands, .stores, .updates, .brands_headers, .stores_headers, .skaters {
   width: 100%;
+  position: relative;
 }
 .brand, .store {
   float: left;
@@ -212,10 +295,17 @@ span img {
   position: relative;
   bottom: 5px;
 }
+.four {
+  font-size: 40px;
+  position: relative;
+  left: 50px;
+  bottom: 0;
+}
+
 /********************//********************//********************//********************/
 /*Stores*/
 
-#store_link, #brand_link {
+#store_link, .brand_link {
   color: black;
   font-family: bold;
   font-size: 30px;
@@ -230,4 +320,41 @@ span img {
   float: left;
   padding: 1%;
   border-bottom: 1px solid black;
+}
+.skaters {
+  margin: auto;
+  display: block;
+}
+.skate {
+  width: 32.333%;
+  margin-left: 5px;
+  height: 400px;
+  float: left;
+
+}
+.skate1 {
+  background: url(../skate.jpeg);
+  background-position: center;
+  background-size: cover;
+
+}
+.skate2 {
+  background: url(../skater.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.skate3 {
+  background: url(../skate3.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+footer p {
+  font-family: future;
 }

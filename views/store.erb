@@ -11,7 +11,7 @@
   <% if @store.brands.any? %>
     <% @store.brands.each do |brand| %>
       <div class="brand">
-        <p>
+        <p class="brand_link">
           <%= brand.name %>
         </p>
         <% if brand.rating.to_i > 0 %>

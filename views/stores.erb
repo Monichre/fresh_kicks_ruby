@@ -1,8 +1,18 @@
 <div class="stores_headers clearfix">
   <h3><span class="special two">*</span>Our Retailers</h3>
-  <h3><span class="special two">+</span>Add Retailers</h3>
+  <h3><span class="special two">+</span>Add Retailers<span class="special two three four">>></span></h3>
+  <h3 class="form-header">
+    <div class="inline-form" id="store-form">
+      <form action="/stores/new" method="post">
+        <label for="store_name">Name:</label>
+        <input id="store_name" name="store_name" type="text">
+        <label for="store_location">Location:</label>
+        <input id="store_location" name="store_location" type="text">
+        <button class="btn inline-button" type="submit">+</button>
+      </form>
+    </div>
+  </h3>
 </div>
-
 
 <% if @stores.any? %>
   <div class="stores">
@@ -18,13 +28,3 @@
   No retailers currently. Check back.
 </p>
 <% end %>
-
-<div class="form">
-  <form action="/stores/new" method="post">
-    <label for="store_name">Store Name</label><br>
-    <input id="store_name" name="store_name" type="text"><br>
-    <label for="store_location">Store Location</label><br>
-    <input id="store_location" name="store_location" type="text"><br>
-    <button class="btn" type="submit">Add this Store</button>
-  </form>
-</div>

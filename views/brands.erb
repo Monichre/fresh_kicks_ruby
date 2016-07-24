@@ -1,47 +1,47 @@
 <div class="brands_headers clearfix">
   <h3><span class="special two">*</span>Our brands</h3>
-  <h3><span class="special two">+</span>Add brands</h3>
-  <h3><span class="special two">+</span>Some Shit</h3>
+  <h3><span class="special two">+</span>Add brands<span class="special two three four">>></span></h3>
+  <h3 class="form-header">
+    <div class="inline-form">
+      <form action="/brands/new" method="post">
+        <label for="brand_name">Brand Name</label>
+        <input id="brand_name" name="brand_name" type="text">
+        <button class="btn inline-button" type="submit">+</button>
+      </form>
+    </div>
+  </h3>
 </div>
-
 
 <div class="brands clearfix">
-  <% if @brands.any? %>
-    <% @brands.each do |brand| %>
-      <div class="brand">
-        <li id="brand_link"><a href="/brands/<%= brand.id %>"><%= brand.name %></a></li>
-        <% if brand.rating.to_i > 0 %>
-          <p>Rating: <%= brand.rating %></p>
-        <% else %>
-          <p>Rate them kicks</p>
-        <% end %>
-        <span class="sneaker"><img src="../shoe.png" alt="" /></span>
-        <span class="rating upVote">
-          <form action="/brands/<%=brand.id %>/rating/upvote" method="post">
-            <input name="_method" type="hidden" value="patch">
-            <button type="submit"><span class="arrow">+</span></button>
-          </form>
-        </span>
-        <span class="rating downVote">
-          <form action="/brands/<%=brand.id %>/rating/downvote" method="post">
-            <input name="_method" type="hidden" value="patch">
-            <button type="submit"><span class="arrow">-</span></button>
-          </form>
-        </span>
-      </div>
-    <% end %><!--end of each-->
-  <% else %>
-    <p>
-      No new brands at this time
-    </p>
-  <%end %><!--end of if -->
-</div>
-<div class="form">
-  <form action="/brands/new" method="post">
-
-    <label for="brand_name">Brand Name</label><br>
-    <input id="brand_name" name="brand_name" type="text"><br>
-
-    <button class="btn" type="submit">Add this brand</button>
-  </form>
-</div>
+  <div class="background-layer">
+    <% if @brands.any? %>
+      <% @brands.each do |brand| %>
+        <div class="brand">
+          <li class="brand_link"><a href="/brands/<%= brand.id %>"><%= brand.name %></a></li>
+          <% if brand.rating.to_i > 0 %>
+            <p>Rating: <%= brand.rating %></p>
+          <% else %>
+            <p>Rate them kicks</p>
+          <% end %>
+          <span class="sneaker"><img src="../shoe.png" alt="" /></span>
+          <span class="rating upVote">
+            <form action="/brands/<%=brand.id %>/rating/upvote" method="post">
+              <input name="_method" type="hidden" value="patch">
+              <button type="submit"><span class="arrow">+</span></button>
+            </form>
+          </span>
+          <span class="rating downVote">
+            <form action="/brands/<%=brand.id %>/rating/downvote" method="post">
+              <input name="_method" type="hidden" value="patch">
+              <button type="submit"><span class="arrow">-</span></button>
+            </form>
+          </span>
+        </div>
+      <% end %><!--end of each-->
+    <% else %>
+      <p>
+        No new brands at this time
+      </p>
+    <%end %><!--end of if -->
+  </div><!-- end of background layer -->
+</div><!-- end of brands -->
