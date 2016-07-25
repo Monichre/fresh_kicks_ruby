@@ -14,15 +14,30 @@
     </div>
   </h3>
 </div>
-
+<img class="splash green2" src="../green-paint-splash.png" alt="" />
 <% if @stores.any? %>
   <div class="stores">
     <% @stores.each do |store| %>
       <div class="store">
         <li id="store_link"><a href="/stores/<%= store.id %>"><%= store.name %></a></li>
         <p class="location"><%= store.location %></p>
-      </div>
-    <% end %>
+        <% if @brands.any? %>
+          <div class="" id="brand_select_add_to_store_form">
+            <form action="/stores/<%= store.id %>/add_brand" method="post">
+              <label for="brand_id"><span class="special one two">Add</span>Brand</label>
+              <select id='brand_id' name='brand_id' type='text'>
+                <% @brands.each do |brand| %>
+                  <option value="<%= brand.id()%>"> <%= brand.name() %> </option>
+                <% end %>
+              </select>
+              <button class="btn inline-button" type="submit"><span class="special two">+</span></button>
+            </form>
+          </div>
+        <% else %>
+          <p>No featured brands</p>
+        <% end %>
+      </div><!-- end of store class -->
+    <% end %><!-- end of stores.each loop -->
   </div><!--end of stores -->
 <% else %>
 <p>

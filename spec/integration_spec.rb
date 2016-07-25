@@ -7,7 +7,7 @@ describe('/', {:type => :feature}) do
   end
 end
 
-describe('/stores/:id/add_brand', {:type => :feature}) do
+describe('/stores/:id/new_brand', {:type => :feature}) do
   it "displays shoe brands on individual page" do
     store = Store.create({name: 'Nike Depot', location: 'Portland'})
     store.brands.create({name: 'Puma'})
@@ -16,6 +16,24 @@ describe('/stores/:id/add_brand', {:type => :feature}) do
       expect(page).to have_content('Nike depot Portland')
     end
     click_link('Nike depot')
+    within(:css, "div.brand") do
+      expect(page).to have_content('Puma')
+    end
+  end
+end
+
+describe('/stores/:id/add_brand', {:type => :feature}) do
+  it "adds shoe brands from store tile page" do
+    store = Store.create({name: 'Nike Depot', location: 'Portland'})
+    brand = Brand.create({name: 'Puma'})
+    visit('/stores')
+    within(:css, "div.store") do
+      expect(page).to have_content('Nike depot Portland')
+    end
+    select('Puma', from: 'brand_id')
+    within(:css, "div#brand_select_add_to_store_form") do
+      click_button('+')
+    end
     within(:css, "div.brand") do
       expect(page).to have_content('Puma')
     end

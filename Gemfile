@@ -1,10 +1,11 @@
 source('https://rubygems.org')
 
 gem('sinatra-contrib', :require => 'sinatra/reloader')
+gem('activerecord')
 gem('sinatra-activerecord')
 gem('rake')
-gem('pg')
 gem('sinatra')
+gem('pg')
 
 group(:test) do
   gem('rspec')

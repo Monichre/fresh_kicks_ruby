@@ -208,8 +208,8 @@ main {
   zoom: 272%;
   opacity: 0.6;
 }
-.green {
-
+.green2 {
+  z-index: -7;
 }
 header {
   height: 300px;
@@ -329,6 +329,21 @@ span img {
   height: 200px;
   box-shadow: 3px 3px 3px gray;
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+#brand_select_add_to_store_form {
+  /*position: absolute;
+  bottom: 0;*/
+}
+#brand_select_add_to_store_form form {
+  text-align: center;
+  margin: auto;
+  display: block;
+}
+.one{
+  font-size: 30px;
+  position: relative;
 }
 .two {
   color: black;

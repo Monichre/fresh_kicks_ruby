@@ -2,6 +2,8 @@ require("bundler/setup")
 Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
+
+
 get('/') do
   erb(:index)
 end
@@ -42,6 +44,7 @@ end
 
 get('/stores') do
   @stores = Store.all
+  @brands = Brand.all
   erb(:stores)
 end
 
@@ -55,6 +58,13 @@ post('/stores/new') do
   location = params['store_location']
   store = Store.create({name: name, location: location})
   redirect('/stores')
+end
+
+post('/stores/:id/add_brand') do
+  new_brand = Brand.find(params['brand_id'])
+  store = Store.find(params['id'])
+  store.brands.push(new_brand)
+  redirect('/stores/' + store.id.to_s)
 end
 
 delete('/stores/:id/delete') do
