@@ -12,7 +12,7 @@ describe(Store) do
   end
 
   it "capitalizes name" do
-    store = Store.create({name: 'nike'})
+    store = Store.create({name: 'nike', location: 'pdx'})
     expect(store.name).to(eq('Nike'))
   end
 end

@@ -86,7 +86,7 @@ describe('/brands', {:type => :feature}) do
 end
 
 describe('/brands/:id', {:type => :feature}) do
-  it "displays all the brands" do
+  it "displays individual brand page" do
     brand = Brand.create({name: 'Adidas', rating: 5})
     visit('/brands/' + brand.id.to_s)
     within(:css, "h3.brand_title span.special.two") do
