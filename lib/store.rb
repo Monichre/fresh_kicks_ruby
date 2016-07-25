@@ -4,7 +4,6 @@ class Store < ActiveRecord::Base
   validates(:location, :presence => true)
   before_save(:upcase_name)
 
-
   private
   def upcase_name
     self.name.capitalize!

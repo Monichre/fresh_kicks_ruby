@@ -2,7 +2,7 @@ require("bundler/setup")
 Bundler.require(:default)
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
-
+require './config/environments'
 
 get('/') do
   erb(:index)
@@ -91,6 +91,6 @@ end
 delete('/stores/:store_id/brands/:id/delete') do
   store = Store.find(params['store_id'])
   brand = Brand.find(params['id'])
-  brand.delete
+  store.brands.destroy(brand)
   redirect('/stores/' + store.id.to_s)
 end
