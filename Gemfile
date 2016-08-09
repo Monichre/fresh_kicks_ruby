@@ -6,6 +6,7 @@ gem('sinatra-activerecord')
 gem('rake')
 gem('sinatra')
 gem('pg')
+gem "puma"
 
 group(:test) do
   gem('rspec')
