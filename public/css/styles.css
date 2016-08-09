@@ -92,6 +92,16 @@ p, .inline-form label {
   display: inline;
   padding: 0;
 }
+button.btn span.special.two{
+  height: min-content!important;
+  width: min-content;
+  display: block;
+  margin: auto;
+  position: relative;
+  bottom: 15px;
+  left: 5px;
+}
+
 .update_store_form {
   width: auto;
   display: inline;
@@ -424,4 +434,14 @@ footer {
 }
 footer p {
   font-family: future;
+
+}
+.social {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.social li img {
+  height: 100px;
+  width: 100px;
 }
