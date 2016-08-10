@@ -1,8 +1,9 @@
 require("bundler/setup")
 require 'active_record'
 Bundler.require(:default)
-Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 ActiveRecord::Base.establish_connection(ENV['RACK_ENV'] || 'postgres://localhost/fresh_kicks_development')
+Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
+
 
 
 get('/') do
