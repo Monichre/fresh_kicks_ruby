@@ -1,9 +1,6 @@
 require("bundler/setup")
-
 Bundler.require(:default)
-# ActiveRecord::Base.establish_connection(ENV['RACK_ENV'] || 'postgres://localhost/fresh_kicks_development')
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
-
 
 
 get('/') do
@@ -65,7 +62,9 @@ end
 post('/stores/:id/add_brand') do
   new_brand = Brand.find(params['brand_id'])
   store = Store.find(params['id'])
-  store.brands.push(new_brand)
+  if !(store.brands.include?(new_brand))
+    store.brands.push(new_brand)
+  end
   redirect('/stores/' + store.id.to_s)
 end
 
